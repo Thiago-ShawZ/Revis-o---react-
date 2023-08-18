@@ -3,6 +3,25 @@ import './App.css'
 
 
 function App() {
+  const [email, setEmail] = useState ("")
+  const [senha, setSenha] = useState ("")
+
+  function handleEmail(evento){
+    setEmail(evento.target.value)
+  }
+
+  function handleSenha(evento){
+    setSenha(evento.target.value)
+  }
+
+  function handleSubmit(){
+    alert(`
+    Email: ${email}
+    Senha: ${senha}
+    `)
+  }
+  
+  
   return (
 
     <>
@@ -11,17 +30,18 @@ function App() {
     </header>
 
     <main>
-    <form action="">
+    <form action="" onSubmit={handleSubmit}>
       <div>
         <label htmlFor="">Email: </label>
-        <input type="email" id='email' placeholder='Digite seu Email' />
+        <input type="email" id='email' placeholder='Digite seu Email ' onChange={handleEmail} />
       </div>
 
       <div>
         <label htmlFor="">Senha: </label>
-        <input type="password" id='Senha' placeholder='Digite sua Senha' />
+        <input type="password" id='Senha' placeholder='Digite sua Senha'onChange={handleSenha} />
       </div>
 
+      <button>Entrar</button>
     </form>
     </main>
     
